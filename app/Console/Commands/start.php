@@ -178,12 +178,29 @@ class start extends Command
             ],
         ];
         
-
-        $count = 0;
+        $score = 0;
         foreach ($questionsAndAnswers as $question => $answers) {
             $this->info($question);
-            $count++;
+            $this->info('1. ' . $answers[0]);
+            $this->info('2. ' . $answers[1]);
+            $this->info('3. ' . $answers[2]);
+            $answer = $this->ask('Kies een antwoord (1, 2 of 3)');
+
+            if ($answer == 1) {
+                $score -= 1;
+            } elseif ($answer == 2) {
+            } elseif ($answer == 3) {
+                $score += 1;
+            } else {
+                $this->error('Ongeldige keuze');
+                return;
+            }
+
+
         }
-        $this->info('Er zijn ' . $count . ' vragen.');
+        $this->info('Je hebt een score van ' . $score . ' punten');
+        $this->info('Dit zijn de partijen die bij jou passen:');
+    
+        }
     }
 }
