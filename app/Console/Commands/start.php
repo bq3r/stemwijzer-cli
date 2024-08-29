@@ -205,13 +205,12 @@ class start extends Command
         $differenceArray = [];
         foreach ($array as $number) {
             $rawDifference = $target - $number;
-            $difference = abs($rawDifference);
-            $differenceArray[$difference] = $number;
+            $differenceArray[$number] = abs($rawDifference);;
         }
-            ksort($differenceArray);
+            asort($differenceArray);
             $closest = [];
         for ($i=0; $i < $amount ; $i++) { 
-            $closest[$i] = array_values($differenceArray)[$i];
+            $closest[$i] = array_keys($differenceArray)[$i];
         }
         return $closest;
     }
