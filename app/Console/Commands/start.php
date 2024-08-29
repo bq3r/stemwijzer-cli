@@ -81,20 +81,35 @@ class start extends Command
         ];
 
         $questionsAndAnswers = [
-            'Question 1' => [
-                'Answer 1',
-                'Answer 2',
-                'Answer 3',
+            'Hoe belangrijk vind je economische vrijheid?' => [
+                'Zeer belangrijk',
+                'Belangrijk',
+                'Minder belangrijk',
             ],
-            'Question 2' => [
-                'Answer 1',
-                'Answer 2',
-                'Answer 3',
+            'Wat vind je van sociale zekerheid?' => [
+                'Beperken',
+                'Huidige niveau behouden',
+                'Uitbreiden',
             ],
-            'Question 3' => [
-                'Answer 1',
-                'Answer 2',
-                'Answer 3',
+            'Hoe kijk je naar belasting op grote bedrijven?' => [
+                'Verlagen',
+                'Ongewijzigd laten',
+                'Verhogen',
+            ],
+            'Hoe kijk je naar belasting op grote bedrijven?' => [
+                'Verlagen',
+                'Ongewijzigd laten',
+                'Verhogen',
+            ],
+            'Hoe kijk je naar belasting op grote bedrijven?' => [
+                'Verlagen',
+                'Ongewijzigd laten',
+                'Verhogen',
+            ],
+            'Hoe kijk je naar belasting op grote bedrijven?' => [
+                'Verlagen',
+                'Ongewijzigd laten',
+                'Verhogen',
             ],
         ];
 
