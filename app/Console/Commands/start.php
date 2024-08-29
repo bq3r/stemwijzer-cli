@@ -177,7 +177,7 @@ class start extends Command
                 'Actief herverdelen',
             ],
         ];
-        
+
         $score = 0;
         foreach ($questionsAndAnswers as $question => $answers) {
             $this->info($question);
@@ -195,12 +195,24 @@ class start extends Command
                 $this->error('Ongeldige keuze');
                 return;
             }
-
-
         }
         $this->info('Je hebt een score van ' . $score . ' punten');
         $this->info('Dit zijn de partijen die bij jou passen:');
-    
+    }
+
+    public function getClosestNumber($target, $array, $amount)
+    {
+        $differenceArray = [];
+        foreach ($array as $number) {
+            $rawDifference = $target - $number;
+            $difference = abs($rawDifference);
+            $differenceArray[$difference] = $number;
         }
+            ksort($differenceArray);
+            $closest = [];
+        for ($i=0; $i < $amount ; $i++) { 
+            $closest[$i] = array_values($differenceArray)[$i];
+        }
+        return $closest;
     }
 }
