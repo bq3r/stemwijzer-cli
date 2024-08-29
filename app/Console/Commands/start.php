@@ -197,21 +197,19 @@ class start extends Command
             }
         }
         $this->info('Je hebt een score van ' . $score . ' punten');
-        $this->info('Dit zijn de partijen die bij jou passen:');
-    }
+        foreach ($parties as $key => $party) {
+            $parties[$key]['difference'] = abs($score - $party['score']);
+        }
 
-    public function getClosestNumber($target, $array, $amount)
-    {
-        $differenceArray = [];
-        foreach ($array as $number) {
-            $rawDifference = $target - $number;
-            $differenceArray[$number] = abs($rawDifference);;
+        usort($parties, function ($a, $b) {
+            return $a['difference'] <=> $b['difference'];
+        });
+
+        $closest = array_slice($parties, 0, 3);
+
+        $this->info("De drie partijen die het dichtst bij jouw standpunten liggen zijn:");
+        foreach ($closest as $party) {
+            $this->info($party['name']);
         }
-            asort($differenceArray);
-            $closest = [];
-        for ($i=0; $i < $amount ; $i++) { 
-            $closest[$i] = array_keys($differenceArray)[$i];
-        }
-        return $closest;
     }
 }
